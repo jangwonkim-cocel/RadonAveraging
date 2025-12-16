@@ -3,7 +3,7 @@
   <h3>A Practical Approach for Designing Rotation-Invariant Models</h3>
   
   <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/Python-3.8+-blue?logo=python&style=flat-square" alt="Python Badge"/>
+    <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python&style=flat-square" alt="Python Badge"/>
   </a>
   &nbsp;&nbsp;
   <a href="https://pytorch.org/">
@@ -40,10 +40,10 @@ This repository contains a pytorch implementation of **Radon Averaging (RA)** fr
 
 ---
 
-## Method
+## Radon Averaging
 
 Radon Averaging achieves rotation invariance by:
-1. **Radon Transform** ($\mathcal{R}$): Converts images ($I$) to sinograms, where an in-plane rotation corresponds to a circular shift (along the angle axis).
+1. **Radon Transform** (ℛ): Converts images ($I$) to sinograms, where an rotation corresponds ($$g$$) to a circular shift.
 2. **Averaging over Discrete Rotations** ($$G$$): Eliminates boundary artifacts via group averaging
 3. **Standard CNN Backbone** ($$Φ$$): No architectural changes required
 ```math
@@ -51,7 +51,7 @@ RA_G^Φ(I) = \frac{1}{|G|} \sum_{g \in G} (Φ \circ π(g) \circ ℛ)($$)
 ```
 ---
 
-## Key Advantages
+## Advantages
 - **Plug-and-play**: works with standard (pretrained) CNN backbones (no architectural changes).
 - **Rotation invariance in practice**: stable representations under image rotations.
 - **Reduces boundary artifacts**: group averaging mitigates Radon transform edge effects.
